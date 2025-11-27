@@ -6,9 +6,9 @@ Resource    elements.robot
 *** Keywords ***
 
 Acessar Site Sienge
-    Open Browser          ${base_url}    chrome    
-    Sleep     3
-    Click Element     //button[@id='btnEntrarComSiengeID']
+
+    Wait Until Element Is Visible    ${TESTE}    20
+    Click Element     ${TESTE}
     
 
 

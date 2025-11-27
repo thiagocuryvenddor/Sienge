@@ -2,6 +2,11 @@
 Documentation    Aqui temos o mapeamento dos elementos e localizadores
 
 *** Variables ***
+${TESTE}            //button[@id='btnEntrarComSiengeID'] 
+
+
+
+
 ${DESCRICAO}         //moura-text-box[@label="Descrição"]//input
 ${CHECKBOX_TEXTO}    //label[normalize-space()='Texto']//input
 ${CAMPO}             //moura-text-box-procura[@label="Campo"]//input

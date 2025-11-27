@@ -1,45 +1,27 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "isShellCommand": true,
-            "command": "del Report\\allure-results\\*.* /F /Q && python -m robot --listener allure_robotframework;./Report/allure-results --log log.html --report NONE --log NONE --output NONE ./Resources/captureVersion.robot",
-            "taskName": "run Robot",
-            "showOutput": "always",
+            "label": "Robot: Executar Arquivo Atual",
+            "type": "shell",
+            "command": "python -m robot --listener allure_robotframework;${workspaceFolder}\\Report\\allure-results ${relativeFile}",
             "problemMatcher": [],
-            "label": "Versao"
-        },
-    
-        {
-            "isShellCommand": true,
-            "command": "xcopy .\\Report\\allure-report\\history .\\Report\\allure-results\\history\\ /Y && allure generate ./Report/allure-results -c -o ./Report/allure-report && xcopy .\\*.png .\\Report\\allure-report\\data\\attachments /D && del *.png",
-            "taskName": "run Robot",
-            "showOutput": "always",
-            "problemMatcher": [],
-            "label": "run Generate Report"
-        },
-        {
-            "isShellCommand": true,
-            "command": "cd Report && allure serve",
-            "taskName": "run allure",
-            "showOutput": "always",
-            "problemMatcher": [],
-            "label": "Allure Serve"
-        },
-        {
-            "isShellCommand": true,
-            "command": "python -m robot --listener allure_robotframework;${workspaceFolder}\\Report\\allure-results --log log.html --report NONE --log NONE --output NONE ${relativeFile}",
-            "taskName": "run TestCase Specific",
-            "showOutput": "always",
-            "problemMatcher": [],
-            "label": "run TestCase Specific",
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
         },
-
+        {
+            "label": "Allure: Abrir Relatório",
+            "type": "shell",
+            "command": "allure serve ${workspaceFolder}\\Report\\allure-results",
+            "problemMatcher": []
+        },
+        {
+            "label": "Robot + Allure: Executar e Abrir Relatório",
+            "type": "shell",
+            "command": "python -m robot --listener allure_robotframework;${workspaceFolder}\\Report\\allure-results ${relativeFile} && allure serve ${workspaceFolder}\\Report\\allure-results",
+            "problemMatcher": []
+        }
     ]
 }

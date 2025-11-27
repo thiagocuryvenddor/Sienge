@@ -5,7 +5,8 @@ Resource    ../Resources/base.robot
 Resource    elements.robot
 Resource    keywords.robot
 
-#Test Teardown    Close All Browsers
+Test Setup       Abrir Navegador
+Test Teardown    Fechar Navegador
 
 *** Test Cases ***
 Criando minha primeira cotação

@@ -1,0 +1,22 @@
+stages:
+  - test
+Run Robot Framework:
+  # image: marketsquare/robotframework-browser
+  tags:
+    - windows
+  stage: test
+  before_script:
+  - npm install -g allure-commandline --save-dev
+  - pip install robotframework
+  - pip install robotframework-seleniumlibrary
+  - pip install allure-robotframework
+  # - wget https://chromedriver.storage.googleapis.com/index.html?path=97.0.4692.36/chromedriver_win32.zip
+  script:
+    - python -m robot --listener allure_robotframework;./Report/allure-results --log log.html --report NONE --log NONE --output NONE SismouraWeb\RobotFramework\Modulos\
+  artifacts:
+    when: always
+    expire_in: 2 days
+    # archive report.html and log.html from logs folder
+    paths:
+      - logs
+    # attach xunit report to merge requests

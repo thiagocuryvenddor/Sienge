@@ -1,0 +1,6 @@
+#Ignorando Pasta Report
+[Rr]eport*
+*.PNG
+[Rr]esources/[Ll]ibrary/__pycache__
+[Ll]og*
+[Oo]utput*

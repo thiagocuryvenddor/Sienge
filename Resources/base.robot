@@ -8,7 +8,7 @@ Library          OperatingSystem
 Library          Library/Uteis.py
 
 *** Variables ***
-${base_url}      https://produtoeinovacao.sienge.com.br/sienge/
+${base_url}      https://suporte2.sienge.com.br/sienge/8/index.html
 ${BROWSER}       chrome
 ${TIMEOUT}       10s
 

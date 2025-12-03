@@ -1,14 +1,24 @@
 *** Settings ***
 Documentation    Aqui teremos todas as palavras chaves de automação dos comportamentos
 Resource    ../Resources/base.robot
+Resource    ../Resources/credentials.robot
 Resource    elements.robot
 
 *** Keywords ***
 
 Acessar Site Sienge
 
-    Wait Until Element Is Visible    ${TESTE}    20
-    Click Element     ${TESTE}
+    Wait Until Element Is Visible    id=username    10
+    Input Text    id=username    ${USERNAME}
+
+    Input Text    id=password    ${PASSWORD}
+
+    Click Button    id=submit
+    Run Keyword And Ignore Error    Click Element    ${ELEMENT_PROSSEGUIR}
+
+    Wait Until Element Is Visible    ${BTN_LEMBRAR_TARDE}    20
+    Click Element    ${BTN_LEMBRAR_TARDE}
+
 
 Fechar Popups Se Existirem
     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${BTN_NAO_OBRIGADO}    80s
@@ -30,9 +40,8 @@ Acessar a tela de Cotação de Preços
     Wait Until Element Is Visible    ${VERIFICAR_TELA_COTACAO}     20
 
 
-
 Ir para tela de Cadastro de cotação de Preços Obra Hub
-    Wait Until Element Is Visible      ${NOVA_COTACAO_OBRA}      200
+    Wait Until Element Is Visible      ${NOVA_COTACAO_OBRA}      20
     Click Element     ${NOVA_COTACAO_OBRA}
 
     Wait Until Element Is Visible    ${COTACAO_OBRA_HUB}     20
@@ -108,57 +117,22 @@ Acessar a cotação recém-criada usando o ID capturado
     Wait Until Element Is Visible    ${BTN_CONSULTAR}     20
     Click Element    ${BTN_CONSULTAR} 
 
-#Clicar no botão Mapa de Comparação
-#Selecionar os fornecedores para a comparação
+Clicar no botão Mapa de Comparação
+    Wait Until Element Is Visible    ${BTN_MAPA_COMPARACAO}     20
+    Click Element    ${BTN_MAPA_COMPARACAO}  
+
+Selecionar os fornecedores para a comparação
+    Wait Until Element Is Visible    ${BTN_FORNECEDORES}    20
+    Click Element    ${BTN_FORNECEDORES}
+
+    Wait Until Element Is Visible    ${BTN_MOSTRAR_TUDO}    20
+    Click Element    ${BTN_MOSTRAR_TUDO}
+
+Verificar se esta mostrando o produto mais barato na cotação (verde)
+    [Arguments]    ${timeout}=30s
+    Wait Until Element Is Visible    css=.rowMenorPreco    ${timeout}
+
 #Clicar em Gerar Pedido
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Preencher todos os campos do Cadastro
-    Input Text    ${DESCRICAO}    TESTE
-
-Selecionar o tipo de arquivo
-    Click Element    ${CHECKBOX_TEXTO}
-
-Preencher todos os campo dos Itens
-    [Arguments]    ${DADO_CAMPO}    ${DADO_INICIO}    ${DADO_FIM}
-    Press Keys     ${CAMPO}         ${DADO_CAMPO}     ENTER
-
-    Input Text    ${INICIO}    ${DADO_INICIO}
-    Input Text    ${FIM}       ${DADO_FIM}
-
-    Click Button    ${BTN_ADICIONAR}
-    Sleep           1
-
-Clicar no botão Gravar
-    Click Button    ${BTN_GRAVAR}
-
-Clicar no botão Limpar
-    Click Button    ${BTN_LIMPAR}

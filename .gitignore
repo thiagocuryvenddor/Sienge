@@ -4,3 +4,7 @@
 [Rr]esources/[Ll]ibrary/__pycache__
 [Ll]og*
 [Oo]utput*
+
+# Credenciais - NÃO COMMITAR
+Resources/credentials.robot
+.env

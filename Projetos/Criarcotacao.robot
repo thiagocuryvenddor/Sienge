@@ -9,7 +9,7 @@ Test Setup       Abrir Navegador
 #Test Teardown    Fechar Navegador
 
 *** Test Cases ***
-Criando minha primeira cotação
+Fluxo Completo - Caminho Feliz
     Acessar Site Sienge
     Acessar a tela de Cotação de Preços
     Ir para tela de Cadastro de cotação de Preços Obra Hub
@@ -24,8 +24,8 @@ Criando minha primeira cotação
     Clicar no botão Entendi
     Verificar a mensagem informando que quando a cotação estiver disponível será enviada uma notificação
     Acessar a cotação recém-criada usando o ID capturado
-
-    #Clicar no botão Mapa de Comparação
-    #Selecionar os fornecedores para a comparação
+    Clicar no botão Mapa de Comparação
+    Selecionar os fornecedores para a comparação
+    Verificar se esta mostrando o produto mais barato na cotação (verde)
     #Clicar em Gerar Pedido
     

@@ -3,13 +3,11 @@ Documentation    Aqui temos o mapeamento dos elementos e localizadores
 
 *** Variables ***
 ${TESTE}                        xpath://button[@id='btnEntrarComSiengeID'] 
-${TELA_COTACAO}                 xpath:https://suporte2.sienge.com.br/sienge/8/index.html#/suprimentos/compras/cotacoes-de-precos/consulta
 ${NOVA_COTACAO_OBRA}            xpath://button[normalize-space()='Nova cotação']
 ${COTACAO_OBRA_HUB}             xpath://p[normalize-space()='Cotação Sienge Obra Hub']
 ${VERIFICAR_TELA_CAD}           xpath://h6[normalize-space()='Cadastro de Cotações de Preços do Sienge Obra Hub']
 ${BTN_NOVA_COTACAO}             xpath://button[@type='submit'][normalize-space()='Nova cotação']
 ${VERIFICAR_NOVA_COTACAO}       xpath://strong[normalize-space()='Cadastro de Cotação de Preço via Sienge Obra Hub']
-${numeroCotacao}=               Get Element Attribute    xpath://input[@name='numeroCotacao']    value
 ${BTN_ADD_INSUMO}               xpath://button[normalize-space()='Adicionar insumo']
 ${LBL_COD_OBRA}                 xpath://div[@name='codigoObra']
 ${LBL_COD_INSUMO}               xpath://div[@name='codigoInsumo']
@@ -32,3 +30,5 @@ ${BTN_BEAMER_CLOSE}             xpath://div[@id='beamerAnnouncementSnippet']
 ${BTN_FAVORITOS}                xpath://button[@aria-label='Favoritos']
 ${BTN_FAV_CAD_COTACAO}          xpath://a[normalize-space()='Cadastros de Cotações de Preços']
 ${VERIFICAR_TELA_COTACAO}       xpath://strong[normalize-space()='Cotações de Preços']
+${ELEMENT_PROSSEGUIR}           xpath://a[@class='Button-prim' and contains(text(),'Prosseguir')]
+${BTN_LEMBRAR_TARDE}            xpath://a[contains(text(),'Lembrar mais tarde')]
